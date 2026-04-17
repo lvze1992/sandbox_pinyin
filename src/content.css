@@ -1,0 +1,8 @@
+.sandbox-chinese-ime-root {
+  all: initial;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+}

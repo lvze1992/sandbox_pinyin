@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Sandbox Chinese IME",
+  "description": "Offline pinyin input for editable fields inside Chrome pages.",
+  "version": "0.1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sandbox Chinese IME"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "commands": {
+    "toggle-ime": {
+      "suggested_key": {
+        "default": "Alt+Shift+T",
+        "mac": "Alt+Shift+T"
+      },
+      "description": "Toggle Sandbox Chinese IME"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "run_at": "document_start",
+      "css": [
+        "src/content.css"
+      ],
+      "js": [
+        "src/goog-shim.js",
+        "vendor/google-input-tools/decoder/inputtoolcode.js",
+        "vendor/google-input-tools/decoder/candidate.js",
+        "vendor/google-input-tools/decoder/eventtype.js",
+        "vendor/google-input-tools/decoder/dataloader.js",
+        "vendor/google-input-tools/decoder/dataparser.js",
+        "vendor/google-input-tools/decoder/heap.js",
+        "vendor/google-input-tools/decoder/tokendecoder.js",
+        "vendor/google-input-tools/decoder/mldecoder.js",
+        "vendor/google-input-tools/decoder/decoder.js",
+        "vendor/google-input-tools/pinyin/data.js",
+        "src/pinyin-engine.js",
+        "src/content.js"
+      ]
+    }
+  ]
+}

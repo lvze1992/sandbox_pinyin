@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandbox Chinese IME</title>
+    <link rel="stylesheet" href="src/popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header class="topline">
+        <div>
+          <h1>沙箱中文输入</h1>
+          <p id="state-text">正在读取状态</p>
+        </div>
+        <label class="switch" aria-label="开关中文输入">
+          <input id="enabled" type="checkbox">
+          <span></span>
+        </label>
+      </header>
+
+      <section class="tips" aria-label="输入说明">
+        <div><kbd>Alt</kbd><kbd>Shift</kbd><kbd>T</kbd><span>开关</span></div>
+        <div><kbd>Space</kbd><span>上屏首选中文</span></div>
+        <div><kbd>Enter</kbd><span>上屏原始英文</span></div>
+        <div><kbd>1</kbd><span>到</span><kbd>9</kbd><span>选择候选</span></div>
+      </section>
+    </main>
+    <script src="src/popup.js"></script>
+  </body>
+</html>

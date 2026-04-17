@@ -671,7 +671,9 @@ goog.ime.offline.TokenDecoder.prototype.inSameRange_ = function(start, end) {
  */
 goog.ime.offline.TokenDecoder.prototype.getSuffixTokens_ = function(source) {
   var ret = [];
-  for (var i = 1; i <= 5 && i <= source.length; ++i) {
+  // Longest Simplified Pinyin syllables include "chuang", "shuang", and
+  // "zhuang", which are six letters.
+  for (var i = 1; i <= 6 && i <= source.length; ++i) {
     var suffix = this.currentStr_.slice(-i);
     if (suffix.match(this.tokenReg_)) {
       ret.push(suffix);

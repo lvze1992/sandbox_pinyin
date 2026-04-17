@@ -25,3 +25,7 @@
 这个扩展采用页面注入方案，而不是系统输入法 API。桌面 Chrome 扩展不能像 ChromeOS 那样接管系统级 IME，所以扩展只能在网页可编辑区域拦截键盘事件、调用离线解码器、再把结果写回当前输入框。
 
 输入引擎来自 Google Input Tools 开源仓库中的 Chromium OS 离线简体拼音解码器，保留在 `vendor/google-input-tools`。扩展的 UI 和页面写入逻辑在 `src` 下，后续如果要换成 `fcitx5-rime.js`，可以把 `src/pinyin-engine.js` 替换为 Rime/WASM adapter，content script 的交互层不用重写。
+
+## 测试
+
+运行 `node tools/smoke-test.js` 可以检查常用拼音和 `chuang`、`shuang`、`zhuang` 这类六字母音节的候选。
